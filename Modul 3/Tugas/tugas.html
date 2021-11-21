@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tugas</title>
+</head>
+<body>
+    <script>
+        //bilangan prima
+        const bilPrima = (angka) =>{
+            let pembagi = 0
+            for(let i = 1; i <=angka; i++){
+                if(angka%i==0){
+                    pembagi++
+                }
+            }
+            if(pembagi == 2){
+                alert("Prima");
+            }else{
+                alert("bukan prima");
+            }
+        }
+
+        let bilangan = window.prompt("Masukkan bilangan")
+        bilPrima(bilangan)
+    </script>
+
+    <script>
+        //bilangan maksimum dan minimum
+        var numbers = [4, 54, 10, 24, 89, 123, 111, 29, 2, 999]
+        var maksimal = Math.max.apply(Math, numbers)
+        var minimal = Math.min.apply(Math, numbers)
+
+        document.write("Angka : "+numbers+"<br/>")
+        document.write("Nilai Maksimum : "+ maksimal+"<br/>")
+        document.write("Nilai Minimum : "+ minimal)
+    </script>
+
+    <h1>Klik Dimana Saja</h1>
+    <script>
+        //event handling
+        //menentukan koordinat
+        document.onmousedown=function(a){
+            alert("x : "+a.x+ ";\ny : "+ a.y)
+        }
+
+        //pemberitahuan klik mouse dan keyboard
+        window.addEventListener("mouseup", function(e){
+            alert("mouse ditekan")
+        })
+        window.addEventListener("keyup", function(e){
+            alert("keyboard dilepas")
+        })
+    
+        //klik melalui kata
+        document.onmousedown=function(e){
+            let par=document.getElementById("paragraf");
+            par.innerHTML="mouse ditekan";
+        }
+        document.onmouseup=function(e){
+            alert("mouse dilepas");
+        }
+    </script>
+    <a href="#" onmousedown="ditekan()" onmouseup="dilepas()">Coba Klik Ini !</a>
+    <p id="paragraf"></p>
+</body>
+</html>
