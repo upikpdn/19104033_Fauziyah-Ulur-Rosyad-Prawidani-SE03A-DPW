@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Effect</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+        /* #panel,
+        #flip {
+            padding: 5px;
+            text-align: center;
+            background-color: #e5eecc;
+            border: solid 1px #c3c3c3;
+        }
+        #panel {
+            padding: 50px;
+            display: none;
+        } */
+
+        #panel,
+        #flip {
+            padding: 5px;
+            font-size: 18px;
+            text-align: center;
+            background-color: #555;
+            color: white;
+            border: solid 1px #666;
+            border-radius: 3px;
+        }
+
+        #panel {
+            padding: 50px;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum asperiores cum, beatae eligendi, quia ratione
+        porro iusto id eveniet unde itaque, a iure consectetur ullam corrupti animi magni velit atque.
+    </p>
+    <button>Toggle</button>
+
+    <p>Demonstrate fadeIn() with different parameters.</p>
+    <button>Click to fade in boxes</button><br><br>
+
+    <div id="flip">Click to slide the panel down or up</div>
+    <div id="panel">Hello world!</div>
+
+    <div id="div1" style="width:80px;height:80px;display:none;background-color:red;"></div><br>
+    <div id="div2" style="width:80px;height:80px;display:none;background-color:green;"></div><br>
+    <div id="div3" style="width:80px;height:80px;display:none;background-color:blue;"></div>
+
+    <button>Start Animation</button>
+    <p>By default, all HTML elements have a static position, and cannot be moved. To manipulate the position, remember
+        to first set the CSS position property of the element to relative, fixed, or absolute!</p>
+    <div style="background:#98bf21;height:100px;width:100px;position:absolute;"></div>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <button id="stop">Stop sliding</button>
+    <div id="flip">Click to slide down panel</div>
+    <div id="panel">Hello world!</div>
+
+    <br>
+
+    <button>Hide</button>
+    <p>This is a paragraph with little content.</p>
+
+    <br>
+    <p id="p1">jQuery is fun!!</p>
+    <button>Click me</button>
+
+    <script>
+        // toggle button
+        $("button").click(function(){
+            $("p").toggle();
+        });
+
+        // Fade
+        $("button").click(function () {
+            $("#div1").fadeToggle();
+            $("#div2").fadeToggle("slow");
+            $("#div3").fadeToggle(3000);
+        });
+
+        // Slide
+        $(document).ready(function(){
+            $("#flip").click(function(){
+                $("#panel").slideToggle("slow");
+            });
+        });
+
+        // Animate
+        $(document).ready(function () {
+            $("button").click(function () {
+                var div = $("div");
+                div.animate({
+                    height: '300px',
+                    opacity: '0.4'
+                }, "slow");
+                div.animate({
+                    width: '300px',
+                    opacity: '0.8'
+                }, "slow");
+                div.animate({
+                    height: '100px',
+                    opacity: '0.4'
+                }, "slow");
+                div.animate({
+                    width: '100px',
+                    opacity: '0.8'
+                }, "slow");
+            });
+        });
+
+        // Stop ()
+        $(document).ready(function () {
+            $("#flip").click(function () {
+                $("#panel").slideDown(5000);
+            });
+            $("#stop").click(function () {
+                $("#panel").stop();
+            });
+        });
+
+        // Callback
+        $(document).ready(function () {
+            $("button").click(function () {
+                $("p").hide("slow", function () {
+                    alert("The paragraph is now hidden");
+                });
+            });
+        });
+
+        // Chaining
+        $(document).ready(function () {
+            $("button").click(function () {
+                $("#p1").css("color", "red")
+                    .slideUp(2000)
+                    .slideDown(2000);
+            });
+        });
+    </script>
+</body>
+
+</html>

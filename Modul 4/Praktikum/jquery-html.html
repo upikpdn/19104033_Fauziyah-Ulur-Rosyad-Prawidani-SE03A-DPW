@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script>
+        // get function
+        $(document).ready(function () {
+            $("#btn1").click(function () {
+                alert("Text: " + $("#test").text());
+            });
+            $("#btn2").click(function () {
+                alert("HTML: " + $("#test").html());
+            });
+        });
+
+        // set content
+        $(document).ready(function () {
+            $("#btn1").click(function () {
+                $("#test1").text("Hello world!");
+            });
+            $("#btn2").click(function () {
+                $("#test2").html("<b>Hello world!</b>");
+            });
+            $("#btn3").click(function () {
+                $("#test3").val("Dolly Duck");
+            });
+        });
+
+        // add function
+        function appendText() {
+            var txt1 = "<p>Text.</p>"; // Create text with HTML
+            var txt2 = $("<p></p>").text("Text."); // Create text with jQuery
+            var txt3 = document.createElement("p");
+            txt3.innerHTML = "Text."; // Create text with DOM
+            $("body").append(txt1, txt2, txt3); // Append new elements
+        }
+
+        // remove
+        $(document).ready(function () {
+            $("button").click(function () {
+                $("#div1").remove();
+            });
+        });
+
+        // add css class
+        $(document).ready(function () {
+            $("button").click(function () {
+                $("h1, h2, p").addClass("blue");
+                $("div").addClass("important");
+            });
+        });
+
+        // width and height method
+        $(document).ready(function () {
+            $("button").click(function () {
+                var txt = "";
+                txt += "Width of div: " + $("#div1").width() + "</br>";
+                txt += "Height of div: " + $("#div1").height();
+                $("#div1").html(txt);
+            });
+        });
+    </script>
+
+    <style>
+        .important {
+            font-weight: bold;
+            font-size: xx-large;
+        }
+
+        .blue {
+            color: blue;
+        }
+
+        #div1 {
+            height: 100px;
+            width: 300px;
+            padding: 10px;
+            margin: 3px;
+            border: 1px solid blue;
+            background-color: lightblue;
+        }
+    </style>
+</head>
+
+<body>
+    <p id="test">This is some <b>bold</b> text in a paragraph.</p>
+    <button id="btn1">Show Text</button>
+    <button id="btn2">Show HTML</button>
+
+    <br>
+
+    <p id="test1">This is a paragraph.</p>
+    <p id="test2">This is another paragraph.</p>
+    <p>Input field: <input type="text" id="test3" value="Mickey Mouse"></p>
+    <button id="btn1">Set Text</button>
+    <button id="btn2">Set HTML</button>
+    <button id="btn3">Set Value</button>
+
+    <br>
+
+    <p>This is a paragraph.</p>
+    <button onclick="appendText()">Append text</button>
+
+    <br>
+
+    <div id="div1" style="height:100px;width:300px;border:1px solid black;background-color:yellow;">
+
+        This is some text in the div.
+        <p>This is a paragraph in the div.</p>
+        <p>This is another paragraph in the div.</p>
+
+    </div>
+    <br>
+    <button>Remove div element</button>
+
+    <br>
+
+    <h1>Heading 1</h1>
+    <h2>Heading 2</h2>
+    <p>This is a paragraph.</p>
+    <p>This is another paragraph.</p>
+    <div>This is some important text!</div><br>
+    <button>Add classes to elements</button>
+
+    <br>
+
+    <div id="div1"></div>
+    <br>
+    <button>Display dimensions of div</button>
+    <p>width() - returns the width of an element.</p>
+    <p>height() - returns the height of an element.</p>
+</body>
+
+</html>
